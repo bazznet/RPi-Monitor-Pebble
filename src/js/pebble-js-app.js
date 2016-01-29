@@ -183,11 +183,11 @@ var getData = function() {
 	var TempCar = "Car Temp: " +dynamic_json.TempCar;
 	var TempSalon = "Salon Temp: " +dynamic_json.TempSalon;
 	var TempEntree = "Entree Temp: " +dynamic_json.TempEntree;
-	var version = TempLaval + "\n" + HumBase + "\n" + TempBase + "\n" + TempCar + "\n" + TempSalon + "\n" + TempEntree;
+	var home = TempLaval + "\n" + HumBase + "\n" + TempBase + "\n" + TempCar + "\n" + TempSalon + "\n" + TempEntree;
 	
 	
 	
-	var dict = {"OK" : load, "CPU" : cpu, "MEMORY" : memory, "MEMORY_P" : Math.round(memory_percent), "SWAP" : swap, "SWAP_P" : Math.round(swap_percent), "SDCARD" : sdcard, "SDCARD_P" : Math.round(sdcard_percent), "NET" : net, "HOME" : version};
+	var dict = {"OK" : load, "CPU" : cpu, "MEMORY" : memory, "MEMORY_P" : Math.round(memory_percent), "SWAP" : swap, "SWAP_P" : Math.round(swap_percent), "SDCARD" : sdcard, "SDCARD_P" : Math.round(sdcard_percent), "NET" : net, "HOME" : home};
 	
 	Pebble.sendAppMessage(dict);
 };
