@@ -169,14 +169,25 @@ var getData = function() {
 	var net_received = "Received: " + KMG(Math.abs(dynamic_json.net_received));
 	var net = net_send + "\n" + net_received;
 
+	/*
 	var processor = static_json.processor;
 	var distribution = static_json.distribution;
 	var kernel_version = static_json.kernel_version;
 	var firmware = "Firmware: " + static_json.firmware;
 	var upgrade = "Package(s): " + dynamic_json.upgrade;
 	var version = processor + "\n" + distribution + "\n" + kernel_version + "\n" + firmware + "\n" + upgrade;
-
-	var dict = {"OK" : load, "CPU" : cpu, "MEMORY" : memory, "MEMORY_P" : Math.round(memory_percent), "SWAP" : swap, "SWAP_P" : Math.round(swap_percent), "SDCARD" : sdcard, "SDCARD_P" : Math.round(sdcard_percent), "NET" : net, "VERSION" : version};
+	*/
+	var TempLaval = "Laval: " +dynamic_json.TempLaval;
+	var HumBase = "Basement Hum: " +dynamic_json.Humidity;
+	var TempBase = "Basement Temp: " +dynamic_json.Temp;
+	var TempCar = "Car Temp: " +dynamic_json.TempCar;
+	var TempSalon = "Salon Temp: " +dynamic_json.TempSalon;
+	var TempEntree = "Entree Temp: " +dynamic_json.TempEntree;
+	var version = TempLaval + "\n" + HumBase + "\n" + TempBase + "\n" + TempCar + "\n" + TempSalon + "\n" + TempEntree;
+	
+	
+	
+	var dict = {"OK" : load, "CPU" : cpu, "MEMORY" : memory, "MEMORY_P" : Math.round(memory_percent), "SWAP" : swap, "SWAP_P" : Math.round(swap_percent), "SDCARD" : sdcard, "SDCARD_P" : Math.round(sdcard_percent), "NET" : net, "HOME" : version};
 	
 	Pebble.sendAppMessage(dict);
 };
