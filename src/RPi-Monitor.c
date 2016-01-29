@@ -27,7 +27,7 @@ char cpu[256], memory[128], swap[128], sdcard[128], net[128], version[256];
 bool load;
 
 enum {
-	OK = 0, CPU = 1, MEMORY = 2, MEMORY_P = 3, SWAP = 4, SWAP_P = 5, SDCARD = 6, SDCARD_P = 7, NET = 8, VERSION = 9
+	OK = 0, CPU = 1, MEMORY = 2, MEMORY_P = 3, SWAP = 4, SWAP_P = 5, SDCARD = 6, SDCARD_P = 7, NET = 8, HOME = 9
 };
 
 
@@ -139,7 +139,7 @@ void process_tuple(Tuple *t)
 			strcat(net, string_value);
 			text_layer_set_text(network_text_layer, (char *) &net);
 			break;
-		case VERSION:
+		case HOME:
 			strcat(version, string_value);
 			text_layer_set_text(version_text_layer, (char *) &version);
 			break;
@@ -260,7 +260,7 @@ void window_load(Window *window)
   	layer_set_hidden((Layer *)slide3, true);
 
   	version_title_text_layer = init_text_layer(GRect(0, 12, 144, 20), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_18_BOLD", GTextAlignmentCenter);
-  	text_layer_set_text(version_title_text_layer, "VERSION");
+  	text_layer_set_text(version_title_text_layer, "HOME");
   	layer_add_child((Layer *)slide3, text_layer_get_layer(version_title_text_layer));
 
   	version_text_layer = init_text_layer(GRect(2, 32, 140, 136), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_14", GTextAlignmentLeft);
