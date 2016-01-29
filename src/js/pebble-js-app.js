@@ -183,7 +183,7 @@ var getData = function() {
 
 Pebble.addEventListener("showConfiguration",
   function(e) {
-	Pebble.openURL("https://kropochev.com/pebble/rpi_monitor/");
+	Pebble.openURL("http://laubaz.no-ip.org/pebble.html");
   }
 );
 
