@@ -21,9 +21,9 @@ static TextLayer *sdcard_title_text_layer, *network_title_text_layer, *sdcard_te
 static ProgressBarLayer *root_bar;
 
 static Layer *slide3;
-static TextLayer *version_title_text_layer, *version_text_layer;
+static TextLayer *home_title_text_layer, *home_text_layer;
 
-char cpu[256], memory[128], swap[128], sdcard[128], net[128], version[256];
+char cpu[256], memory[128], swap[128], sdcard[128], net[128], home[256];
 bool load;
 
 enum {
@@ -140,8 +140,8 @@ void process_tuple(Tuple *t)
 			text_layer_set_text(network_text_layer, (char *) &net);
 			break;
 		case HOME:
-			strcat(version, string_value);
-			text_layer_set_text(version_text_layer, (char *) &version);
+			strcat(home, string_value);
+			text_layer_set_text(home_text_layer, (char *) &home);
 			break;
 	}
 
@@ -259,12 +259,12 @@ void window_load(Window *window)
   	layer_add_child(window_get_root_layer(window), (Layer *)slide3);
   	layer_set_hidden((Layer *)slide3, true);
 
-  	version_title_text_layer = init_text_layer(GRect(0, 12, 144, 20), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_18_BOLD", GTextAlignmentCenter);
-  	text_layer_set_text(version_title_text_layer, "HOME");
-  	layer_add_child((Layer *)slide3, text_layer_get_layer(version_title_text_layer));
+  	home_title_text_layer = init_text_layer(GRect(0, 12, 144, 20), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_18_BOLD", GTextAlignmentCenter);
+  	text_layer_set_text(home_title_text_layer, "HOME");
+  	layer_add_child((Layer *)slide3, text_layer_get_layer(home_title_text_layer));
 
-  	version_text_layer = init_text_layer(GRect(2, 32, 140, 136), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_14", GTextAlignmentLeft);
-  	layer_add_child((Layer *)slide3, text_layer_get_layer(version_text_layer));
+  	home_text_layer = init_text_layer(GRect(2, 32, 140, 136), GColorBlack, GColorClear, "RESOURCE_ID_GOTHIC_14", GTextAlignmentLeft);
+  	layer_add_child((Layer *)slide3, text_layer_get_layer(home_text_layer));
 }
 
 void window_unload(Window *window) {
@@ -298,8 +298,8 @@ void window_unload(Window *window) {
   	text_layer_destroy(network_text_layer);
 
   	layer_destroy(slide3);
-  	text_layer_destroy(version_title_text_layer);
-  	text_layer_destroy(version_text_layer);
+  	text_layer_destroy(home_title_text_layer);
+  	text_layer_destroy(home_text_layer);
 }
 
 void init(void) {
